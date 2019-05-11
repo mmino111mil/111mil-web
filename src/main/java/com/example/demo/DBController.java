@@ -6,9 +6,19 @@
 package com.example.demo;
 
 import java.lang.reflect.Method;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.sql.DataSource;
 
 @CrossOrigin(origins = "http://localhost", maxAge = 3600)
 @RestController
@@ -28,25 +40,26 @@ public class DBController {
     @Autowired
     private DataSource dataSource;
 
-    @RequestMapping("/db")
-    String db(Map<String, Object> model) {
+
+    @GetMapping("/db")
+    public List<Persona> db() {
+        List<Persona> personas = new ArrayList<>();
+
         try (Connection connection = dataSource.getConnection()) {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
             stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
             ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-            ArrayList<String> output = new ArrayList<String>();
+            int i = 0;
             while (rs.next()) {
-                output.add("Read from DB: " + rs.getTimestamp("tick"));
+                personas.add(new Persona(i++, "Read from DB: " + rs.getTimestamp("tick")));
             }
 
-            model.put("records", output);
-            return "db";
         } catch (Exception e) {
-            model.put("message", e.getMessage());
-            return "error";
+
         }
+
+        return personas;
     }
 
     @Bean
@@ -59,3 +72,4 @@ public class DBController {
             return new HikariDataSource(config);
         }
     }
+}
