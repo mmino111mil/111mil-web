@@ -31,6 +31,10 @@ public class PersonaController {
                 String.format(template, name));
     }
     
+    /**
+     * ver ejemplo git
+     * @return 
+     */
     @GetMapping("/personas")
     public List<Persona> personas() {
         
