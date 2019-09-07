@@ -4,6 +4,3 @@ CREATE TABLE "Rol" (
 	"Descripcion" VARCHAR(500) NULL DEFAULT NULL::character varying
 )
 ;
-COMMENT ON COLUMN "TBL_Rol"."ID" IS E'';
-COMMENT ON COLUMN "TBL_Rol"."Nombre" IS E'';
-COMMENT ON COLUMN "TBL_Rol"."Descripcion" IS E'';
