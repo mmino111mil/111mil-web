@@ -23,70 +23,17 @@ and open the template in the editor.
         
     </head>
     <body>
-        <div>Ejemplo de modificación parte 2</div>
-        <form id="persona">
-            
-            id <input id="id" type="text"/>
-            <br/>
-                contenido <input id="content" type="text" />
-            <br/>
-            
-            <input id="formpersona" type="submit" />
-        </form>
-        
-        <span></span>
-        
-        <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<center><a href="Alta_usuarios.html">Alta Usuarios</a></center>
-        
-        <script >
-         $("#formpersona").click(function(){
-            var id = $("#id").val();
-            var content = $("#content").val();
-            $.ajax({
-                url: "persona",
-                async: false,
-                data: JSON.stringify({"id" : id, "content":content}),
-                error: function(response) {
-                  //displayResponseMessage(response);
-                  console.log("Error");
-                },
-                success: function(response) {
-                  console.log(" Successfull");
-                },
-                type: "POST",
-                headers: {
-                  Accept: 'application/json;charset=utf-8',
-                  'Content-Type': 'application/json;charset=utf-8'
-                },
-                dataType: 'json'
-              });
-            return false;
-         });
-        </script>
+
+    <center><a href="Alta_usuarios.html">Alta Usuarios</a></center>
+
+    <center><a href="santiago.html">Satntiago</a></center>
+
+    <center><a href="abel.html">Abel</a></center>
+
+    <center><a href="lucas.html">Lucas</a></center>
+
+    <center><a href="persona.html">Lucas</a></center>
+
     </body>
 </html>
