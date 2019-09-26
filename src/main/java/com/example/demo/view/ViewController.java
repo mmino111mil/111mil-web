@@ -19,10 +19,31 @@ public class ViewController {
     @Autowired
     PersonaRepository personaRepository;
 
+
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
+
     @RequestMapping("/property")
     public String property(@ModelAttribute("persona") Persona persona , Model model) {
         personaRepository.save(persona);
         model.addAttribute("personas", personaRepository.findAll());
         return "personaList";
+    }
+
+    @RequestMapping("/equipo")
+    public String equipo(@ModelAttribute("persona") Persona persona , Model model) {
+        return "equipo";
+    }
+
+    @RequestMapping("/persona/alta")
+    public String personaAlta() {
+        return "persona/alta";
+    }
+
+    @RequestMapping("/persona/list")
+    public String personaList() {
+        return "persona/list";
     }
 }

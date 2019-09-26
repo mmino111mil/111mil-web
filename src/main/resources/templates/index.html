@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}" xmlns:th="http://www.thymeleaf.org" >
+<body>
+<div layout:fragment="content" class="container">
+    <!-- Content here -->
+    <div class="row" style="padding: 1rem;">
+        <div class="col-sm-12">
+            <div class="card">
+
+                <div class="card-header">
+                    Featured
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title">Nueva Persona</h5>
+                    <p class="card-text">Agrega nueva persoan a la lista</p>
+
+                    <form method="post" name="persona" action="property">
+
+                        <div class="form-group">
+                            <label for="nombre">nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                   aria-describedby="nombreHelp" placeholder="Enter Nombre">
+                            <small id="nombreHelp" class="form-text text-muted">Halgo para señalar sobreel
+                                nombre.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mail">Email address</label>
+                            <input type="mail" class="form-control" id="mail" name="mail" aria-describedby="emailHelp"
+                                   placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+
+                        <!--                -->
+                        <!--                <div class="form-group">-->
+                        <!--                    <label for="exampleInputPassword1">Password</label>-->
+                        <!--                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+                        <!--                </div>-->
+
+                        <button type="submit" class="btn btn-primary">Guardar Persona</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

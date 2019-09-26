@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}" xmlns:th="http://www.thymeleaf.org" >
+<body>
+<div layout:fragment="content" class="container">
+
+    <div class="row">
+        <div class="col-sm">
+            <div th:include="equipo/abel.html" > </div>
+        </div>
+        <div class="col-sm">
+            <div th:include="equipo/lucas.html" > </div>
+        </div>
+        <div class="col-sm">
+            <div th:include="equipo/santiago.html" > </div>
+        </div>
+    </div>
+    <div class="row col-sm-12">
+    &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div th:include="equipo/marcos.html" > </div>
+        </div>
+        <div class="col-sm">
+            <div th:include="equipo/david.html" > </div>
+        </div>
+        <div class="col-sm">
+            <div th:include="equipo/aldana.html" > </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
