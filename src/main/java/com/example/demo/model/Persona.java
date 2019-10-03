@@ -38,7 +38,6 @@ public class Persona {
         this.nombre = nombre;
     }
 
-
     public long getId() {
         return id;
     }

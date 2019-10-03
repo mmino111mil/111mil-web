@@ -25,11 +25,11 @@ public class ViewController {
         return "index";
     }
 
-    @RequestMapping("/property")
+    @PostMapping ("/persona/alta")
     public String property(@ModelAttribute("persona") Persona persona , Model model) {
         personaRepository.save(persona);
         model.addAttribute("personas", personaRepository.findAll());
-        return "personaList";
+        return "persona/list";
     }
 
     @RequestMapping("/equipo")
@@ -43,7 +43,8 @@ public class ViewController {
     }
 
     @RequestMapping("/persona/list")
-    public String personaList() {
+    public String personaList( Model model) {
+        model.addAttribute("personas", personaRepository.findAll());
         return "persona/list";
     }
 }
