@@ -19,6 +19,8 @@ public class ViewController {
 
     @Autowired
     PersonaRepository personaRepository;
+
+    @Autowired
     DireccionRepository direccionRepository;
 
     @RequestMapping("/")
@@ -33,8 +35,8 @@ public class ViewController {
         return "persona/list";
     }
 
-    @PostMapping("/Direccion/alta")
-    public String property(@ModelAttribute("persona") Direccion direccion, Model model) {
+    @PostMapping("/direccion/alta")
+    public String property(@ModelAttribute("direccion") Direccion direccion, Model model) {
         direccionRepository.save(direccion);
         model.addAttribute("direcciones", direccionRepository.findAll());
         return "direccion/list";
@@ -50,9 +52,20 @@ public class ViewController {
         return "persona/alta";
     }
 
+    @RequestMapping("/direccion/alta")
+    public String direccionAlta() {
+        return "direccion/alta";
+    }
+
     @RequestMapping("/persona/list")
     public String personaList(Model model) {
         model.addAttribute("personas", personaRepository.findAll());
         return "persona/list";
+    }
+
+    @RequestMapping("/direccion/list")
+    public String direccionList(Model model) {
+        model.addAttribute("direcciones", direccionRepository.findAll());
+        return "direccion/list";
     }
 }

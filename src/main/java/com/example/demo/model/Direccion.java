@@ -34,8 +34,6 @@ public class Direccion {
         this.localidad = localidad;
     }
 
-    
-    
     public Long getId() {
         return id;
     }

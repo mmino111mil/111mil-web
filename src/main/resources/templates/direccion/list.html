@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/layout}">
+<body>
+<div layout:fragment="content" class="container">
+    <div class="card">
+        <div class="card-header">
+            Listado de direcciones cargadas
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Direcciones</h5>
+            <p class="card-text"></p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Calle</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Localidad</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="direccion: ${direcciones}">
+                    <td scope="row" th:text="${direccion.id}"/>
+                    <td th:text="${direccion.calle}"/>
+                    <td th:text="${direccion.numero}"/>
+                    <td th:text="${direccion.localidad}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
