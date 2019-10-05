@@ -34,7 +34,7 @@ public class ViewController {
     }
 
     @PostMapping("/Direccion/alta")
-    public String property(@ModelAttribute("persona") Direccion direccion, Model model) {
+    public String property(@ModelAttribute("direccion") Direccion direccion, Model model) {
         direccionRepository.save(direccion);
         model.addAttribute("direcciones", direccionRepository.findAll());
         return "direccion/list";
