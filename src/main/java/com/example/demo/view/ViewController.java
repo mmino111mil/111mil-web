@@ -5,35 +5,43 @@
  */
 package com.example.demo.view;
 
+import com.example.demo.dao.DireccionRepository;
 import com.example.demo.dao.PersonaRepository;
+import com.example.demo.model.Direccion;
 import com.example.demo.model.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
 @Controller
 public class ViewController {
 
     @Autowired
     PersonaRepository personaRepository;
-
+    DireccionRepository direccionRepository;
 
     @RequestMapping("/")
     public String index() {
         return "index";
     }
 
-    @PostMapping ("/persona/alta")
-    public String property(@ModelAttribute("persona") Persona persona , Model model) {
+    @PostMapping("/persona/alta")
+    public String property(@ModelAttribute("persona") Persona persona, Model model) {
         personaRepository.save(persona);
         model.addAttribute("personas", personaRepository.findAll());
         return "persona/list";
     }
 
+    @PostMapping("/Direccion/alta")
+    public String property(@ModelAttribute("persona") Direccion direccion, Model model) {
+        direccionRepository.save(direccion);
+        model.addAttribute("direcciones", direccionRepository.findAll());
+        return "direccion/list";
+    }
+
     @RequestMapping("/equipo")
-    public String equipo(@ModelAttribute("persona") Persona persona , Model model) {
+    public String equipo(@ModelAttribute("persona") Persona persona, Model model) {
         return "equipo";
     }
 
@@ -43,7 +51,7 @@ public class ViewController {
     }
 
     @RequestMapping("/persona/list")
-    public String personaList( Model model) {
+    public String personaList(Model model) {
         model.addAttribute("personas", personaRepository.findAll());
         return "persona/list";
     }
