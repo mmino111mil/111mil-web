@@ -25,8 +25,11 @@ public class Direccion {
         private Integer numero;
         private String localidad;
 
+    public Direccion(){
         
-        
+    }
+
+
     public Direccion(Long id, String calle, Integer numero, String localidad) {
         this.id = id;
         this.calle = calle;
